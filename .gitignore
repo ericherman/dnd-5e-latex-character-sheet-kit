@@ -1,0 +1,18 @@
+################
+# Output files
+################
+*.pdf
+*.log
+*.aux
+*.synctex.gz
+
+###################
+# backup files
+###################
+*~
+*.swp
+*.bak
+*.bck
+*cache.lib
+$*
+*.000
