@@ -1,0 +1,373 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% sheet-autun.tex: A LaTeX (pure-text, git-friendly) D&D5e character sheet
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+% For license see:
+% * https://creativecommons.org/licenses/by-sa/4.0/legalcode
+% See also the Open Game License and Frequently Asked Questions page:
+% * https://roll20.net/compendium/dnd5e/Miscellaneous:License
+% * https://www.wizards.com/default.asp?x=d20/oglfaq/20040123f
+% And:
+% * https://roll20.net/compendium/dnd5e/Paladin
+% * https://dnd5e.wikidot.com
+% * https://dnd-wiki.org/wiki/SRD5:Paladin
+% * https://merovia.obsidianportal.com
+%
+\documentclass{article}
+\title{Dungeons \& Dragons 5e character sheet}
+\date{2019-12-29}
+\author{Eric Herman}
+\usepackage[a4paper,margin=1cm]{geometry}
+\input{dnd-required-packages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin input basic variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\DndPlayer}{Eric}
+\newcommand{\DndName}{Autun}
+\newcommand{\DndTitle}{Warden of Cantos Wood}
+\newcommand{\DndClass}{Paladin}
+\FPeval{\DndLevel}{6}
+\newcommand{\DndBackground}{Acolyte}
+\newcommand{\DndRace}{Firbolg}
+\newcommand{\DndAlignment}{Neutral Good}
+\newcommand{\DndXP}{}
+\newcommand{\DndAge}{29 (adolescent adult)}
+\newcommand{\DndHeight}{221cm (7'3")}
+\newcommand{\DndWeight}{88kg (195lb)}
+\newcommand{\DndEyes}{green-brown}
+\newcommand{\DndSkin}{blue-green}
+\newcommand{\DndHair}{brown}
+
+\FPeval{\DndStr}{18 + 1 + 1} % firbolg, 4th
+\FPeval{\DndDex}{12}
+\FPeval{\DndCon}{13}
+\FPeval{\DndInt}{10}
+\FPeval{\DndWis}{12 + 2} % firbolg
+\FPeval{\DndCha}{15 + 1} % 4th
+
+\FPeval{\DndArmorClass}{17}
+\FPeval{\DndSpeed}{30}
+\FPeval{\DndHitDie}{10}
+
+% stat proficiences: \FPeval{\DndIsProficientStr}{1} for proficient
+\FPeval{\DndIsProficientWis}{1}
+\FPeval{\DndIsProficientCha}{1}
+
+% skill proficiences: e.g.: \FPeval{\DndIsProficientSlightOfHand}{1}
+\FPeval{\DndIsProficientAthletics}{1} % Paladin
+\FPeval{\DndIsProficientInsight}{1} % Acolyte
+\FPeval{\DndIsProficientMedicine}{1} % Paladin
+\FPeval{\DndIsProficientReligion}{1} % Acolyte
+
+% stat for spellcasting: e.g.: \FPeval{\DndIsSpellcasterInt}{1}
+% dual-stat spellcasting (e.g.: multiclass INT, CHA) not supported
+\FPeval{\DndIsSpellcasterCha}{1}
+\FPeval{\DndPaladinLevel}{\DndLevel}
+
+\newcommand{\DndPersonalityTraits}{
+I see omens in every event and action. The Gods try to speak to us,
+we just need to listen.
+}
+\newcommand{\DndIdeals}{
+I always try to help those in need, no matter what the personal cost.
+}
+\newcommand{\DndBonds}{
+I will do anything to protect the forests, for they are Her temples.
+}
+\newcommand{\DndFlaws}{
+My piety sometimes leads me to blindly trust those that profess faith
+in my god.
+}
+
+\newcommand{\DndOtherPoficienciesAndLanguages}{
+\emph{Firbolg ability score increase}: +2 Wisdom, +1 Strength (included)\par
+\emph{Languages}: Common, Elvish. (not Giant; backstory)\par
+\emph{Acolyte Proficiencies}: Insight, Religion\par
+\emph{Paladin Skills}: Athletics, Medicine\par
+\emph{Armor Proficiencies}: Light Armor, Medium Armor, Heavy Armor, Shields\par
+\emph{Weapon Proficiencies}: Simple Weapons, Martial Weapons\par
+\emph{Ability Score Improvement}: +1 STR, +1 CHA (included)\par
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Race abilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndRaceSpecialOne}{
+\textbf{Firbolg Magic}: You can cast \textit{Detect Magic} and
+\textit{Disguise Self} with this trait, using Wisdom as your
+spellcasting ability for them. Once you cast either spell, you can't
+cast it again until you finish a short or long rest. When you use this
+version of \textit{Disguise Self}, you can seem up to 3 feet shorter
+than normal, allowing you to more easily blend in with humans and elves.
+}
+\newcommand{\DndRaceSpecialTwo}{
+\textbf{Firbolg Hidden Step}: As a bonus action, you can magically turn
+invisible until the start of your next turn or until you attack, make a
+damage roll, or force someone to make a saving throw. Once you use this
+trait, you can't use it again until you finish a short or long rest.
+}
+\newcommand{\DndRaceSpecialThree}{
+\textbf{Firbolg Powerful Build}: You count as one size larger when
+determining your carrying capacity and the weight you can push, drag, or
+lift.
+}
+\FPeval{\DndSizeLiftFactor}{2}
+\newcommand{\DndRaceSpecialFour}{
+\textbf{Speech of Beast and Leaf}: You have the ability to communicate
+in a limited manner with beasts and plants. They can understand the
+meaning of your words, though you have no special ability to understand
+them in return. You have advantage on all Charisma checks made to
+influence them.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% background features
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndBackgroundFeatureOne}{
+\textbf{Shelter of the Faithful}:
+As an acolyte, you command the respect of those who share your faith,
+and you can perform the religious ceremonies of your deity. You and your
+adventuring companions can expect to receive free healing and care at a
+temple, shrine, or ther established presence of your faith, though you
+must provide any material components needed for spells. Those who share
+your religion will support you (but only you) at a modest lifestyle.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class abilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndClassAbilityOne}{\textbf{Divine Sense}:
+The presence of strong evil registers on your Senses like a noxious
+odor, and powerful good rings like heavenly music in your ears. As an
+action, you can open your awareness to detect such forces. Until the end
+of your next turn, you know the location of any Celestial, fiend, or
+Undead within 60 feet of you that is not behind total cover. You know
+the type (celestial, fiend, or undead) of any being whose presence you
+sense, but not its identity (the Vampire Count Strahd von Zarovich, for
+instance). Within the same radius, you also detect the presence of any
+place or object that has been consecrated or desecrated, as with the
+Hallow spell.\par
+You can use this feature a number of times equal to 1 + your Charisma
+modifier. When you finish a Long Rest, you regain all expended uses.
+}
+\newcommand{\DndClassAbilityTwo}{\textbf{Lay on Hands}:
+Your blessed touch can heal wounds. You have a pool of Healing power
+that replenishes when you take a Long Rest. With that pool, you can
+restore a total number of Hit Points equal to your Paladin level x 5.
+\par
+As an action, you can touch a creature and draw power from the pool to
+restore a number of Hit Points to that creature, up to the maximum
+amount remaining in your pool.
+\par
+Alternatively, you can expend 5 Hit Points from your pool of Healing to
+cure the target of one disease or neutralize one poison affecting it.
+You can cure multiple Diseases and neutralize multiple Poisons with a
+single use of Lay on Hands, expending Hit Points separately for each
+one.
+\par
+This feature has no effect on Undead and constructs.
+}
+\newcommand{\DndClassAbilityThree}{\textbf{Great Weapon Fighting}:
+When you roll a 1 or 2 on a damage die for an Attack you make with a
+melee weapon that you are wielding with two hands, you can reroll the
+die and must use the new roll. The weapon must have the Two-Handed or
+Versatile property for you to gain this benefit.
+}
+\newcommand{\DndClassAbilityFour}{\textbf{Divine Smite}:
+Starting at 2nd level, when you hit a creature with a melee weapon
+Attack, you can expend one spell slot to deal radiant damage to the
+target, in addition to the weapon's damage. The extra damage is 2d8 for
+a 1st-level spell slot, plus 1d8 for each Spell Level higher than 1st,
+to a maximum of 5d8. The damage increases by 1d8 if the target is an
+Undead or a fiend.
+}
+\newcommand{\DndClassAbilityFive}{\textbf{Divine Health}:
+By 3rd level, the Divine Magic flowing through you makes you immune to
+disease.
+}
+\newcommand{\DndClassAbilitySix}{\textbf{Extra Attack}:
+Beginning at 5th level, you can Attack twice, instead of once, whenever
+you take the Attack action on Your Turn.
+}
+\newcommand{\DndClassAbilitySeven}{\textbf{Aura of Protection}:
+Starting at 6th level, whenever you or a friendly creature within 10
+feet of you must make a saving throw, the creature gains a bonus to the
+saving throw equal to your Charisma modifier (with a minimum bonus of
++1). You must be conscious to grant this bonus.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndSpecialtyName}{Oath of the Ancients}
+\newcommand{\DndSpecialtyPreamble}{\textbf{Oath of the Ancients}:
+The tenets of the \emph{Oath of the Ancients} have been preserved for
+uncounted centuries. This oath emphasizes the principles of good above
+any concerns of law or chaos. Its four central principles are simple.
+\begin{itemize}
+\item
+\textbf{Kindle the Light.} Through your acts of mercy, kindness, and
+forgiveness, kindle the light of hope in the world, beating back
+despair.
+\item
+\textbf{Shelter the Light.} Where there is good, beauty, love, and
+laughter in the world, stand against the wickedness that would swallow
+it. Where life flourishes, stand against the forces that would render it
+barren.
+\item
+\textbf{Preserve Your Own Light.} Delight in song and laughter, in
+beauty and art. If you allow the light to die in your own heart, you
+can't preserve it in the world.
+\item
+\textbf{Be the Light.} Be a glorious beacon for all who live in despair.
+Let the light of your joy and courage shine forth in all your deeds.
+\end{itemize}
+}
+\newcommand{\DndSpecialtyAbilityOne}{\textbf{Channel Divinity}:
+Your oath allows you to channel divine energy to fuel magical Effects.
+Each Channel Divinity option provided by your oath explains how to use
+it.\par
+When you use your Channel Divinity, you choose which option to use. You
+must then finish a short or Long Rest to use your Channel Divinity
+again.\par
+Some Channel Divinity Effects require Saving Throws. When you use such
+an effect from this class, the DC equals your Paladin spell save
+DC.
+}
+\newcommand{\DndSpecialtyAbilityTwo}{
+\textbf{Channel Divinity, Nature's Wrath}: You can use your Channel
+Divinity to invoke primeval forces to ensnare a foe. As an action, you
+can cause spectral vines to spring up and reach for a creature within 10
+feet of you that you can see. The creature must succeed on a Strength
+or Dexterity saving throw (its choice) or be restrained.  While
+restrained by the vines, the creature repeats the saving throw at the
+end of each of its turns. On a success, it frees itself and the vines
+vanish.
+}
+\newcommand{\DndSpecialtyAbilityThree}{
+\textbf{Channel Divinity, Turn the Faithless}: You can use your Channel
+Divinity to utter ancient words that are painful for fey and fiends to
+hear. As an action, you present your holy symbol, and each fey or fiend
+within 30 feet of you that can hear you must make a Wisdom saving
+throw. On a failed save, the creature is turned for 1 minute or until it
+takes damage.\par
+A turned creature must spend its turns trying to move as far away from
+you as it can, and it can't willingly move to a space within 30 feet of
+you. It also can't take reactions. For its action, it can use only the
+Dash action or try to escape from an effect that prevents it from
+moving. If there's nowhere to move, the creature can use the Dodge
+action.\par
+If the creature's true form is concealed by an illusion, shapeshifting, or
+other effect, that form is revealed while it is turned.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Attacks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndWeaponOneName}{Dawnbringer}
+\newcommand{\DndWeaponOneType}{Str}
+\newcommand{\DndWeaponOneDamageType}{radiant}
+\newcommand{\DndWeaponOneDamage}{1d10}
+\newcommand{\DndWeaponOneMagicToHit}{2}
+\newcommand{\DndWeaponOneMagicDamage}{2}
+\newcommand{\DndWeaponOneSpecailKey}{vs. undead}
+\newcommand{\DndWeaponOneSpecailVal}{+1d8}
+
+\newcommand{\DndWeaponTwoName}{greataxe}
+\newcommand{\DndWeaponTwoType}{Str}
+\newcommand{\DndWeaponTwoDamageType}{slashing}
+\newcommand{\DndWeaponTwoDamage}{1d12}
+
+\newcommand{\DndWeaponThreeName}{longbow}
+\newcommand{\DndWeaponThreeType}{Dex}
+\newcommand{\DndWeaponThreeDamageType}{slashing}
+\newcommand{\DndWeaponThreeDamage}{1d8}
+
+\newcommand{\DndWeaponFourName}{handaxe}
+\newcommand{\DndWeaponFourType}{Str}
+\newcommand{\DndWeaponFourDamageType}{slashing}
+\newcommand{\DndWeaponFourDamage}{1d6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Combat Special (box highlight)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndCombatSpecialOne}{
+\textbf{Dawnbringer} appears to be a gilded longsword hilt. While
+grasping the hilt, you can use a bonus action to make a blade of pure
+radiance spring from the hilt, or cause the blade to disappear.
+\begin{itemize}
+\item While the blade exists, this magic longsword has the
+\textit{finesse} property.
+\item The sword's luminous blade emits bright light in a 15-foot radius
+and dim light for an additional 15 feet. The light is sunlight. While
+the blade persists, you can use an action to expand or reduce its radius
+of bright and dim light by 5 feet each, to a maximum of 30 feet each or
+a minimum of 10 feet each.
+\item If you attune to Dawnbringer, you gain a +2 bonus to attack and
+damage rolls made with her, which deals radiant damage instead of
+slashing damage. When you hit an undead with it, that target takes an
+extra 1d8 radiant damage.
+\item Dawnbringer can communicate with its wearer telepathically. As
+long as you are attuned to her, she knows every language you know.
+Otherwise, she can speak and understand Common.
+\end{itemize}
+If you are proficient with shortswords or longswords, you are proficient
+with Dawnbringer.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class Specialty (box highlight)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndSpecialtyBoxHighlightOne}{
+\textbf{Preacher's Pendant of Sending}: A small pendant on a string. It
+is shaped like a scroll and can be unrolled a litttle, but is made from
+fully black material. It requires attunement for it to have the
+following effects:
+\begin{itemize}
+  \item You may add 5 ft to the range of your Channel Divinity.
+  \item Once per long rest, you may cast \textit{Message}.
+	  You do not need the material component for this spell.
+\end{itemize}
+}
+
+% Note: Inventory is in a separate sheet document entirely
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pull in all of the variables needed for everything else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{dnd-ensure-variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of global variables, beginning of layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts are hard, going with Alegreya for now:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{Alegreya} %% Option 'black' gives heavier bold face
+\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}} % cargo culting
+\setlength\parindent{0pt} % we do not want to repeat \noindent everwhere
+\begin{document}
+\pagenumbering{gobble} % turn off pagenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% First Page, and flow to additional pages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\raggedright
+\input{dnd-character-header-1}
+\input{dnd-main-stats-and-traits}
+% end stats, begin regular text-like layout
+\input{dnd-combat-special}
+\input{dnd-race-abilities}
+\input{dnd-class-abilities}
+\input{dnd-special-abilites}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header 2: new page for character physical stuff header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\raggedright
+\input{dnd-character-header-2}
+\input{dnd-background}
+\input{dnd-paladin-spells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
