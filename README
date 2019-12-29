@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+This is a collection of LaTeX files which may be useful for recording
+Dungeons & Dragons characters in a pure-text and git-friendly format.
+
+Each layout element is designed to be reusable and hopefully modular
+enough to be used for a variety of classes and layouts.
+
+The examples show that the sheets are far from beautiful, but usable.
+
+To see the examples, have a full LaTeX installed and simply type "make"
+to produce an example paladin (Autun) and rogue (Kais).
+
+
+For license see:
+* https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+See also the Open Game License and Frequently Asked Questions page:
+* https://roll20.net/compendium/dnd5e/Miscellaneous:License
+* https://www.wizards.com/default.asp?x=d20/oglfaq/20040123f
+
+Handy LaTeX table info:
+* https://en.wikibooks.org/wiki/LaTeX/Tables
+* https://www.latex-tutorial.com/tutorials/tables/
+
+Handy content links:
+* https://roll20.net/compendium/dnd5e/Paladin
+* https://dnd5e.wikidot.com
+* http://sage5e.wikidot.com/subclass:arcane-trickster
+* https://dnd-wiki.org/wiki/SRD5:Paladin
+* https://merovia.obsidianportal.com
