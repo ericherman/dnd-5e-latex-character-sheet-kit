@@ -1,0 +1,120 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+\newcommand{\dndProfCircle}[1]{ \ifthenelse{\equal{#1}{1}}{\CIRCLE}{\Circle} }
+\begin{tabular}{|l|} % skills, saving throws, etc
+\hline
+\begin{tabular}{r l}
+\ovalbox{\ifthenelse{\DndProficiencyMod<0}{}{+}\DndProficiencyMod} & {\small Proficiency bonus} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\small Saving throws}
+\end{tabular} \\
+\begin{tabular}{l r l}
+\hline
+{\scriptsize \dndProfCircle{\DndIsProficientStr}} &
+{\scriptsize \ifthenelse{\DndStrSave<0}{}{+}\DndStrSave} &
+{\scriptsize Strength} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientDex}} &
+{\scriptsize \ifthenelse{\DndDexSave<0}{}{+}\DndDexSave} &
+{\scriptsize Dexterity} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientCon}} &
+{\scriptsize \ifthenelse{\DndConSave<0}{}{+}\DndConSave} &
+{\scriptsize Constitution} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientInt}} &
+{\scriptsize \ifthenelse{\DndIntSave<0}{}{+}\DndIntSave} &
+{\scriptsize Intelligence} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientWis}} &
+{\scriptsize \ifthenelse{\DndWisSave<0}{}{+}\DndWisSave} &
+{\scriptsize Wisdom} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientCha}} &
+{\scriptsize \ifthenelse{\DndChaSave<0}{}{+}\DndChaSave} &
+{\scriptsize Charisma} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\small Skills}
+\end{tabular} \\
+\begin{tabular}{l r l}
+\hline
+{\scriptsize \dndProfCircle{\DndIsProficientAcrobatics}} &
+{\scriptsize \ifthenelse{\DndAcrobaticsMod<0}{}{+}\DndAcrobaticsMod} &
+{\scriptsize Acrobatics} {\tiny(Dex)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientAnimalHandling}} &
+{\scriptsize \ifthenelse{\DndAnimalHandlingMod<0}{}{+}\DndAnimalHandlingMod} &
+{\scriptsize Animal Handling} {\tiny(Wis)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientArcana}} &
+{\scriptsize \ifthenelse{\DndArcanaMod<0}{}{+}\DndArcanaMod} &
+{\scriptsize Arcana} {\tiny(Int)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientAthletics}} &
+{\scriptsize \ifthenelse{\DndAthleticsMod<0}{}{+}\DndAthleticsMod} &
+{\scriptsize Athletics} {\tiny(Str)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientDeception}} &
+{\scriptsize \ifthenelse{\DndDeceptionMod<0}{}{+}\DndDeceptionMod} &
+{\scriptsize Deception} {\tiny(Cha)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientHistory}} &
+{\scriptsize \ifthenelse{\DndHistoryMod<0}{}{+}\DndHistoryMod} &
+{\scriptsize History} {\tiny(Int)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientInsight}} &
+{\scriptsize \ifthenelse{\DndInsightMod<0}{}{+}\DndInsightMod} &
+{\scriptsize Insight} {\tiny(Wis)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientIntimidation}} &
+{\scriptsize \ifthenelse{\DndIntimidationMod<0}{}{+}\DndIntimidationMod} &
+{\scriptsize Intimidation} {\tiny(Cha)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientInvestigation}} &
+{\scriptsize \ifthenelse{\DndInvestigationMod<0}{}{+}\DndInvestigationMod} &
+{\scriptsize Investigation} {\tiny(Int)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientMedicine}} &
+{\scriptsize \ifthenelse{\DndMedicineMod<0}{}{+}\DndMedicineMod} &
+{\scriptsize Medicine} {\tiny(Wis)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientNature}} &
+{\scriptsize \ifthenelse{\DndNatureMod<0}{}{+}\DndNatureMod} &
+{\scriptsize Nature} {\tiny(Int)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientPerception}} &
+{\scriptsize \ifthenelse{\DndPerceptionMod<0}{}{+}\DndPerceptionMod} &
+{\scriptsize Perception} {\tiny(Wis)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientPerformance}} &
+{\scriptsize \ifthenelse{\DndPerformanceMod<0}{}{+}\DndPerformanceMod} &
+{\scriptsize Performance} {\tiny(Cha)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientPersuasion}} &
+{\scriptsize \ifthenelse{\DndPersuasionMod<0}{}{+}\DndPersuasionMod} &
+{\scriptsize Persuasion} {\tiny(Cha)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientReligion}} &
+{\scriptsize \ifthenelse{\DndReligionMod<0}{}{+}\DndReligionMod} &
+{\scriptsize Religion} {\tiny(Int)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientSlightOfHand}} &
+{\scriptsize \ifthenelse{\DndSlightOfHandMod<0}{}{+}\DndSlightOfHandMod} &
+{\scriptsize Slight of Hand} {\tiny(Dex)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientStealth}} &
+{\scriptsize \ifthenelse{\DndStealthMod<0}{}{+}\DndStealthMod} &
+{\scriptsize Stealth} {\tiny(Dex)} \\
+%
+{\scriptsize \dndProfCircle{\DndIsProficientSurvival}} &
+{\scriptsize \ifthenelse{\DndSurvivalMod<0}{}{+}\DndSurvivalMod} &
+{\scriptsize Survival} {\tiny(Wis)} \\
+\end{tabular} \\
+\hline
+\end{tabular}

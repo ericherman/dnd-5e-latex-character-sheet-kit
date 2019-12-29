@@ -1,0 +1,30 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndClassAbilityOne}}{}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{\DndClass\enspace Abilities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright
+\begin{multicols}{3}
+\DndClassAbilityOne
+\ifthenelse{\isundefined{\DndClassAbilityTwo}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityTwo}
+\ifthenelse{\isundefined{\DndClassAbilityThree}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityThree}
+\ifthenelse{\isundefined{\DndClassAbilityFour}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityFour}
+\ifthenelse{\isundefined{\DndClassAbilityFive}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityFive}
+\ifthenelse{\isundefined{\DndClassAbilitySix}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilitySix}
+\ifthenelse{\isundefined{\DndClassAbilitySeven}}%
+	{}{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilitySeven}
+\ifthenelse{\isundefined{\DndClassAbilityEight}}%
+	{}{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityEight}
+\ifthenelse{\isundefined{\DndClassAbilityNine}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityNine}
+\ifthenelse{\isundefined{\DndClassAbilityTen}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndClassAbilityTen}
+\end{multicols}
+}

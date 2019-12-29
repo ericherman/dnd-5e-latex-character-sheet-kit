@@ -1,0 +1,19 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Background Features
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndBackgroundFeatureOne}}{}{
+\section*{\DndBackground}
+\DndBackgroundFeatureOne
+\ifthenelse{\isundefined{\DndBackgroundFeatureTwo}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureTwo}
+\ifthenelse{\isundefined{\DndBackgroundFeatureThree}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureThree}
+\ifthenelse{\isundefined{\DndBackgroundFeatureFour}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureFour}
+\ifthenelse{\isundefined{\DndBackgroundFeatureFive}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureFive}
+\ifthenelse{\isundefined{\DndBackgroundFeatureSix}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureSix}
+}

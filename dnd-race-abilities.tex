@@ -1,0 +1,19 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+\ifthenelse{\isundefined{\DndRaceSpecialOne}}{}{
+\section*{\DndRace}
+\raggedright
+\begin{multicols}{2}
+\DndRaceSpecialOne
+\ifthenelse{\isundefined{\DndRaceSpecialTwo}}{}%
+        {\vspace{0.5em}\hrule\vspace{0.5em}\DndRaceSpecialTwo}
+\ifthenelse{\isundefined{\DndRaceSpecialThree}}{}%
+        {\vspace{0.5em}\hrule\vspace{0.5em}\DndRaceSpecialThree}
+\ifthenelse{\isundefined{\DndRaceSpecialFour}}{}%
+        {\vspace{0.5em}\hrule\vspace{0.5em}\DndRaceSpecialFour}
+\ifthenelse{\isundefined{\DndRaceSpecialFive}}{}%
+        {\vspace{0.5em}\hrule\vspace{0.5em}\DndRaceSpecialFive}
+\ifthenelse{\isundefined{\DndRaceSpecialSix}}{}%
+        {\vspace{0.5em}\hrule\vspace{0.5em}\DndRaceSpecialSix}
+\end{multicols}
+}

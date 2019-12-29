@@ -1,0 +1,196 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+% handy link: http://sage5e.wikidot.com/subclass:arcane-trickster
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{ArcaneTrickster Spells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright
+\newcommand{\DndArcaneTricksterSpellSlotsFirst}{
+	\ifthenelse{\DndArcaneTricksterLevel < 3}{0}{
+	\ifthenelse{\equal{\DndArcaneTricksterLevel}{3}}{2}{
+	\ifthenelse{\DndArcaneTricksterLevel < 7}{3}{4}}}}
+
+\newcommand{\DndArcaneTricksterSpellSlotsSecond}{
+	\ifthenelse{\DndArcaneTricksterLevel < 7}{0}{
+	\ifthenelse{\DndArcaneTricksterLevel < 10}{2}{3}}}
+
+\newcommand{\DndArcaneTricksterSpellSlotsThird}{
+	\ifthenelse{\DndArcaneTricksterLevel < 13}{0}{
+	\ifthenelse{\DndArcaneTricksterLevel < 16}{2}{3}}}
+
+\newcommand{\DndArcaneTricksterSpellSlotsFourth}{
+	\ifthenelse{\DndArcaneTricksterLevel < 19}{0}{1}}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Spellcasting Ability: &
+Spell save DC: &
+Spell Attack bonus \\
+{\huge \DndCastingStatName} &
+{\huge \DndSpellSaveDC} &
+{\huge \ifthenelse{\DndStrMod<0}{}{+}\DndSpellAttackMod} \\
+\hline
+\end{tabular}
+
+\begin{multicols}{3}
+{\scriptsize
+When you reach 3rd level, you gain the ability to cast spells. See
+chapter 10 for the general rules of spellcasting and chapter 11 for the
+wizard spell list.\par
+\vspace{1em}\hrule\vspace{1em}
+\textbf{Cantrips}: You learn three cantrips: \textit{mage hand} and two
+other cantrips of your choice from the wizard spell list. you learn
+another cantrip of your choice at 10th level.
+\vspace{1em}\hrule\vspace{1em}
+\textbf{Spell Slots}: The Arcane Trickster Spellcasting table shows how
+many spell slots you have to cast your spells of 1st level and higher.
+To cast one of these spells, you must expend a slot of the spell's level
+or higher. You greain all expended spell slots when you finish a long
+rest.
+\par
+For example, if you know the 1st-level spell \textit{charm person} and
+have a 1st-level and a 2nd-level spell slot available, you can cast
+\textit{charm person} using either slot.
+\vspace{1em}\hrule\vspace{1em}
+\textbf{Spells Known of 1st-Level and Higher}: You know three 1st-level
+wizard spells of your choice, two of which you must choose for the
+enchantment and illusion spells on the wizard spell list.\par
+The Spells Known column of the Arcane Trickster Spellcasting table shows
+when you learn more wizard spells of 1st level or higher. Each of these
+spells must be an enchantment or illusion spell of your choice, and must
+be of a level for which you have spell slots. For instance, when you
+reach 7th level in this class, you can learn one new spell of 1st or 2nd
+level.\par
+The spells you learn at 8th, 14th, and 20th level can come from any
+school of magic.\par
+Whenever you gain a level in this class, you can replace one of the
+wizard spells you know with another spell of your choice from the
+wizard spell list. The new spell must be of a level for which you have
+spell slots, and it must be an enchantment or illusion spell unless
+you're replacing the spell you gained at 8th, 14th, or 20th level.\par
+} %scriptsize
+\end{multicols}
+\par
+\fbox{ \parbox{\textwidth}{
+\textbf{Mage Hand Legerdemain}:
+Starting at 3rd level, when you cast \textit{mage hand}, you can make
+the spectral hand invisible, and you can perform the following
+additional tasks with it:
+\begin{itemize}
+\item You can stow one obect the hand is holding in a container worn or
+	carried by another creature.
+\item You can retrieve an object in a container worn or carried by
+	another creature.
+\item You can use thieves' tools to pick locks and tisarm traps at
+	range.
+\end{itemize}
+You can perform one of these tasks without being noticed by a creature
+if you succeed on a Dexterity (Slight of Hand) check contested by the
+creature's Wisdom (Perception) check.\par
+In addition, you can use the bonus action granted by your Cunning
+Action to control the hand.\par
+}}
+\vspace{1em}
+\vspace{1em}
+
+\ovalbox{
+\begin{tabular}{c}
+	\ovalbox{\DndArcaneTricksterSpellSlotsFirst} \nth{1} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndArcaneTricksterSpellSlotsSecond} \nth{2} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndArcaneTricksterSpellSlotsThird} \nth{3} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndArcaneTricksterSpellSlotsFourth} \nth{4} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+}
+
+\vspace{1em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ArcaneTrickster spell table
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\scriptsize
+\begin{tabular}{|r l l l r l l l|}
+\hline
+Lvl &
+Name &
+VSM &
+Cast Time &
+Duration &
+Range &
+Save &
+\\
+
+0 &
+Mage hand &
+V, S &
+Action &
+1 Minute &
+30 ft &
+&
+\\
+
+
+0 &
+Mold earth &
+S &
+Action &
+Instantaneous/1 hour &
+30 ft &
+&
+\\
+
+\hline
+
+1 &
+Silent image &
+V, S, M &
+Action &
+10 minutes &
+60 ft &
+&
+Concentration \\
+
+
+1 &
+Disguise self &
+V, S &
+Action &
+1 Hour &
+Self &
+&
+\\
+
+
+1 &
+Find familiar &
+V, S, M &
+1 Hour &
+&
+10 ft &
+&
+\\
+
+
+1 &
+Charm person &
+V, S &
+Action &
+1 Hour &
+30 ft &
+&
+\\
+
+\hline
+\end{tabular}
+
+} % scriptsize

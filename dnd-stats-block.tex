@@ -1,0 +1,52 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+\fbox{
+\begin{tabular}{|c|}
+\hline
+{\tiny Inspiration} \\
+\framebox(15,15){} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Strength} \\
+{\huge \ifthenelse{\DndStrMod<0}{}{+}\DndStrMod} \\
+\ovalbox{\DndStr} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Dexterity} \\
+{\huge \ifthenelse{\DndDexMod<0}{}{+}\DndDexMod} \\
+\ovalbox{\DndDex} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Constitution} \\
+{\huge \ifthenelse{\DndConMod<0}{}{+}\DndConMod} \\
+\ovalbox{\DndCon} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Intelligence} \\
+{\huge \ifthenelse{\DndIntMod<0}{}{+}\DndIntMod} \\
+\ovalbox{\DndInt} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Wisdom} \\
+{\huge \ifthenelse{\DndWisMod<0}{}{+}\DndWisMod} \\
+\ovalbox{\DndWis} \\
+\end{tabular} \\
+\hline
+\hline
+\begin{tabular}{c}
+{\tiny Charisma} \\
+{\huge \ifthenelse{\DndChaMod<0}{}{+}\DndChaMod} \\
+\ovalbox{\DndCha} \\
+\end{tabular} \\
+\hline
+\end{tabular}
+}

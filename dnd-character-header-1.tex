@@ -1,0 +1,14 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+\ovalbox{\parbox{\linewidth}{
+\begin{tabular}{l r}
+{\huge \DndName}\ifthenelse{\isundefined{\DndTitle}}{}{{\huge, }
+	{\large \DndTitle }} &
+\ovalbox{ \begin{tabular}{l l l}
+{\tiny class \& level} & {\tiny background} & {\tiny player}\\
+\DndClass, \nth{\DndLevel} level & \DndBackground & \DndPlayer \\
+{\tiny race} & {\tiny alignment} & {\tiny experience points} \\
+\DndRace & \DndAlignment & \DndXP \\
+\end{tabular} } \\
+\end{tabular}
+}}

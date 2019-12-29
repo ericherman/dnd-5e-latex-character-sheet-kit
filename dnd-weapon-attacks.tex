@@ -1,0 +1,198 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin weapons
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\fbox{{\scriptsize
+\begin{tabular} {rl} % attacks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndWeaponOneName}}{}{
+\DndWeaponOneName & \DndWeaponOneDamageType \\
+\ifthenelse{\equal{Dex}{\DndWeaponOneType}}{
+	\ifthenelse{\isundefined{\DndWeaponOneMagicToHit}}
+		{\newcommand{\DndWeaponOneMagicToHit}{0}}{}
+	\FPeval{\DndWeaponOneToHitMod}
+	{clip(\DndProficiencyMod + \DndDexMod + \DndWeaponOneMagicToHit)}
+	\ifthenelse{\DndWeaponOneToHitMod<0}{}{+}\DndWeaponOneToHitMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponOneMagicToHit}}
+		{\newcommand{\DndWeaponOneMagicToHit}{0}}{}
+	\FPeval{\DndWeaponOneToHitMod}
+	{clip(\DndProficiencyMod + \DndStrMod + \DndWeaponOneMagicToHit)}
+	\ifthenelse{\DndWeaponOneToHitMod<0}{}{+}\DndWeaponOneToHitMod
+}
+&
+\DndWeaponOneDamage
+\ifthenelse{\equal{Dex}{\DndWeaponOneType}}{
+	\ifthenelse{\isundefined{\DndWeaponOneMagicDamage}}
+		{\newcommand{\DndWeaponOneMagicDamage}{0}}{}
+	\FPeval{\DndWeaponOneDamageMod}
+	{clip(\DndDexMod + \DndWeaponOneMagicDamage)}
+	\ifthenelse{\DndWeaponOneDamageMod<0}{}{+}\DndWeaponOneDamageMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponOneMagicDamage}}
+		{\newcommand{\DndWeaponOneMagicDamage}{0}}{}
+	\FPeval{\DndWeaponOneDamageMod}
+	{clip(\DndStrMod + \DndWeaponOneMagicDamage)}
+	\ifthenelse{\DndWeaponOneDamageMod<0}{}{+}\DndWeaponOneDamageMod
+}
+\ifthenelse{\isundefined{\DndWeaponOneSpecailKey}}{}
+	{\\
+	\DndWeaponOneSpecailKey & \DndWeaponOneSpecailVal}
+\\
+\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndWeaponTwoName}}{}{
+\DndWeaponTwoName & \DndWeaponTwoDamageType \\
+\ifthenelse{\equal{Dex}{\DndWeaponTwoType}}{
+	\ifthenelse{\isundefined{\DndWeaponTwoMagicToHit}}
+		{\newcommand{\DndWeaponTwoMagicToHit}{0}}{}
+	\FPeval{\DndWeaponTwoToHitMod}
+	{clip(\DndProficiencyMod + \DndDexMod + \DndWeaponTwoMagicToHit)}
+	\ifthenelse{\DndWeaponTwoToHitMod<0}{}{+}\DndWeaponTwoToHitMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponTwoMagicToHit}}
+		{\newcommand{\DndWeaponTwoMagicToHit}{0}}{}
+	\FPeval{\DndWeaponTwoToHitMod}
+	{clip(\DndProficiencyMod + \DndStrMod + \DndWeaponTwoMagicToHit)}
+	\ifthenelse{\DndWeaponTwoToHitMod<0}{}{+}\DndWeaponTwoToHitMod
+}
+&
+\DndWeaponTwoDamage
+\ifthenelse{\equal{Dex}{\DndWeaponTwoType}}{
+	\ifthenelse{\isundefined{\DndWeaponTwoMagicDamage}}
+		{\newcommand{\DndWeaponTwoMagicDamage}{0}}{}
+	\FPeval{\DndWeaponTwoDamageMod}
+	{clip(\DndDexMod + \DndWeaponTwoMagicDamage)}
+	\ifthenelse{\DndWeaponTwoDamageMod<0}{}{+}\DndWeaponTwoDamageMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponTwoMagicDamage}}
+		{\newcommand{\DndWeaponTwoMagicDamage}{0}}{}
+	\FPeval{\DndWeaponTwoDamageMod}
+	{clip(\DndStrMod + \DndWeaponTwoMagicDamage)}
+	\ifthenelse{\DndWeaponTwoDamageMod<0}{}{+}\DndWeaponTwoDamageMod
+}
+\ifthenelse{\isundefined{\DndWeaponTwoSpecailKey}}{}
+	{\\
+	\DndWeaponTwoSpecailKey & \DndWeaponTwoSpecailVal}
+\\
+\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndWeaponThreeName}}{}{
+\DndWeaponThreeName & \DndWeaponThreeDamageType \\
+\ifthenelse{\equal{Dex}{\DndWeaponThreeType}}{
+	\ifthenelse{\isundefined{\DndWeaponThreeMagicToHit}}
+		{\newcommand{\DndWeaponThreeMagicToHit}{0}}{}
+	\FPeval{\DndWeaponThreeToHitMod}
+	{clip(\DndProficiencyMod + \DndDexMod + \DndWeaponThreeMagicToHit)}
+	\ifthenelse{\DndWeaponThreeToHitMod<0}{}{+}\DndWeaponThreeToHitMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponThreeMagicToHit}}
+		{\newcommand{\DndWeaponThreeMagicToHit}{0}}{}
+	\FPeval{\DndWeaponThreeToHitMod}
+	{clip(\DndProficiencyMod + \DndStrMod + \DndWeaponThreeMagicToHit)}
+	\ifthenelse{\DndWeaponThreeToHitMod<0}{}{+}\DndWeaponThreeToHitMod
+}
+&
+\DndWeaponThreeDamage
+\ifthenelse{\equal{Dex}{\DndWeaponThreeType}}{
+	\ifthenelse{\isundefined{\DndWeaponThreeMagicDamage}}
+		{\newcommand{\DndWeaponThreeMagicDamage}{0}}{}
+	\FPeval{\DndWeaponThreeDamageMod}
+	{clip(\DndDexMod + \DndWeaponThreeMagicDamage)}
+	\ifthenelse{\DndWeaponThreeDamageMod<0}{}{+}\DndWeaponThreeDamageMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponThreeMagicDamage}}
+		{\newcommand{\DndWeaponThreeMagicDamage}{0}}{}
+	\FPeval{\DndWeaponThreeDamageMod}
+	{clip(\DndStrMod + \DndWeaponThreeMagicDamage)}
+	\ifthenelse{\DndWeaponThreeDamageMod<0}{}{+}\DndWeaponThreeDamageMod
+}
+\ifthenelse{\isundefined{\DndWeaponThreeSpecailKey}}{}
+	{\\
+	\DndWeaponThreeSpecailKey & \DndWeaponThreeSpecailVal}
+\\
+\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndWeaponFourName}}{}{
+\DndWeaponFourName & \DndWeaponFourDamageType \\
+\ifthenelse{\equal{Dex}{\DndWeaponFourType}}{
+	\ifthenelse{\isundefined{\DndWeaponFourMagicToHit}}
+		{\newcommand{\DndWeaponFourMagicToHit}{0}}{}
+	\FPeval{\DndWeaponFourToHitMod}
+	{clip(\DndProficiencyMod + \DndDexMod + \DndWeaponFourMagicToHit)}
+	\ifthenelse{\DndWeaponFourToHitMod<0}{}{+}\DndWeaponFourToHitMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponFourMagicToHit}}
+		{\newcommand{\DndWeaponFourMagicToHit}{0}}{}
+	\FPeval{\DndWeaponFourToHitMod}
+	{clip(\DndProficiencyMod + \DndStrMod + \DndWeaponFourMagicToHit)}
+	\ifthenelse{\DndWeaponFourToHitMod<0}{}{+}\DndWeaponFourToHitMod
+}
+&
+\DndWeaponFourDamage
+\ifthenelse{\equal{Dex}{\DndWeaponFourType}}{
+	\ifthenelse{\isundefined{\DndWeaponFourMagicDamage}}
+		{\newcommand{\DndWeaponFourMagicDamage}{0}}{}
+	\FPeval{\DndWeaponFourDamageMod}
+	{clip(\DndDexMod + \DndWeaponFourMagicDamage)}
+	\ifthenelse{\DndWeaponFourDamageMod<0}{}{+}\DndWeaponFourDamageMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponFourMagicDamage}}
+		{\newcommand{\DndWeaponFourMagicDamage}{0}}{}
+	\FPeval{\DndWeaponFourDamageMod}
+	{clip(\DndStrMod + \DndWeaponFourMagicDamage)}
+	\ifthenelse{\DndWeaponFourDamageMod<0}{}{+}\DndWeaponFourDamageMod
+}
+\ifthenelse{\isundefined{\DndWeaponFourSpecailKey}}{}
+	{\\
+	\DndWeaponFourSpecailKey & \DndWeaponFourSpecailVal}
+\\
+\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndWeaponFiveName}}{}{
+\DndWeaponFiveName & \DndWeaponFiveDamageType \\
+\ifthenelse{\equal{Dex}{\DndWeaponFiveType}}{
+	\ifthenelse{\isundefined{\DndWeaponFiveMagicToHit}}
+		{\newcommand{\DndWeaponFiveMagicToHit}{0}}{}
+	\FPeval{\DndWeaponFiveToHitMod}
+	{clip(\DndProficiencyMod + \DndDexMod + \DndWeaponFiveMagicToHit)}
+	\ifthenelse{\DndWeaponFiveToHitMod<0}{}{+}\DndWeaponFiveToHitMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponFiveMagicToHit}}
+		{\newcommand{\DndWeaponFiveMagicToHit}{0}}{}
+	\FPeval{\DndWeaponFiveToHitMod}
+	{clip(\DndProficiencyMod + \DndStrMod + \DndWeaponFiveMagicToHit)}
+	\ifthenelse{\DndWeaponFiveToHitMod<0}{}{+}\DndWeaponFiveToHitMod
+}
+&
+\DndWeaponFiveDamage
+\ifthenelse{\equal{Dex}{\DndWeaponFiveType}}{
+	\ifthenelse{\isundefined{\DndWeaponFiveMagicDamage}}
+		{\newcommand{\DndWeaponFiveMagicDamage}{0}}{}
+	\FPeval{\DndWeaponFiveDamageMod}
+	{clip(\DndDexMod + \DndWeaponFiveMagicDamage)}
+	\ifthenelse{\DndWeaponFiveDamageMod<0}{}{+}\DndWeaponFiveDamageMod
+}{
+	\ifthenelse{\isundefined{\DndWeaponFiveMagicDamage}}
+		{\newcommand{\DndWeaponFiveMagicDamage}{0}}{}
+	\FPeval{\DndWeaponFiveDamageMod}
+	{clip(\DndStrMod + \DndWeaponFiveMagicDamage)}
+	\ifthenelse{\DndWeaponFiveDamageMod<0}{}{+}\DndWeaponFiveDamageMod
+}
+\ifthenelse{\isundefined{\DndWeaponFiveSpecailKey}}{}
+	{\\
+	\DndWeaponFiveSpecailKey & \DndWeaponFiveSpecailVal}
+\\
+\hline
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{tabular} % attacks
+}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End weapons
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

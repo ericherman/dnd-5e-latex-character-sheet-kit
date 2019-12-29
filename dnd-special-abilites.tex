@@ -1,0 +1,29 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\isundefined{\DndSpecialtyPreamble}}{}{
+	\fbox{\parbox{\linewidth}{{\DndSpecialtyPreamble}}}}
+\ifthenelse{\isundefined{\DndSpecialtyAbilityOne}}{}{
+\begin{multicols}{2}
+\DndSpecialtyAbilityOne
+\ifthenelse{\isundefined{\DndSpecialtyAbilityTwo}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityTwo}
+\ifthenelse{\isundefined{\DndSpecialtyAbilityThree}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityThree}
+\ifthenelse{\isundefined{\DndSpecialtyAbilityFour}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityFour}
+\ifthenelse{\isundefined{\DndSpecialtyAbilityFive}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityFive}
+\ifthenelse{\isundefined{\DndSpecialtyAbilitySix}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilitySix}
+\ifthenelse{\isundefined{\DndSpecialtyAbilitySeven}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilitySeven}
+\ifthenelse{\isundefined{\DndSpecialtyAbilityEight}}{}%
+	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityEight}
+\end{multicols}
+\ifthenelse{\isundefined{\DndSpecialtyBoxHighlightOne}}{}{
+\fbox{\parbox{\textwidth}{\DndSpecialtyBoxHighlightOne}}
+}
+}

@@ -1,0 +1,292 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% dnd-ensure-variables.tex: A LaTeX version of the D&D5e character sheet
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+
+% ensure these are defined, if not above
+\ifthenelse{\isundefined{\DndPlayer}}{\newcommand{\DndPlayer}{}}{}
+\ifthenelse{\isundefined{\DndName}}{\newcommand{\DndName}{}}{}
+\ifthenelse{\isundefined{\DndAlignment}}{\newcommand{\DndAlignment}{}}{}
+\ifthenelse{\isundefined{\DndRace}}{\newcommand{\DndRace}{}}{}
+\ifthenelse{\isundefined{\DndAge}}{\newcommand{\DndAge}{}}{}
+\ifthenelse{\isundefined{\DndHeight}}{\newcommand{\DndHeight}{}}{}
+\ifthenelse{\isundefined{\DndWeight}}{\newcommand{\DndWeight}{}}{}
+\ifthenelse{\isundefined{\DndEyes}}{\newcommand{\DndEyes}{}}{}
+\ifthenelse{\isundefined{\DndSkin}}{\newcommand{\DndSkin}{}}{}
+\ifthenelse{\isundefined{\DndHair}}{\newcommand{\DndHair}{}}{}
+\ifthenelse{\isundefined{\DndSpeed}}{\newcommand{\DndSpeed}{}}{}
+\ifthenelse{\isundefined{\DndBackground}}{\newcommand{\DndBackground}{}}{}
+\ifthenelse{\isundefined{\DndClass}}{\newcommand{\DndClass}{Villager}}{}
+\ifthenelse{\isundefined{\DndXP}}{\newcommand{\DndXP}{}}{}
+\ifthenelse{\isundefined{\DndLevel}}{\FPeval{\DndLevel}{0}}{}
+\ifthenelse{\isundefined{\DndHitDie}}{\FPeval{\DndHitDie}{4}}{}
+
+\ifthenelse{\isundefined{\DndStr}}{\FPeval{\DndStr}{3}}{}
+\ifthenelse{\isundefined{\DndDex}}{\FPeval{\DndDex}{3}}{}
+\ifthenelse{\isundefined{\DndCon}}{\FPeval{\DndCon}{3}}{}
+\ifthenelse{\isundefined{\DndInt}}{\FPeval{\DndInt}{3}}{}
+\ifthenelse{\isundefined{\DndWis}}{\FPeval{\DndWis}{3}}{}
+\ifthenelse{\isundefined{\DndCha}}{\FPeval{\DndCha}{3}}{}
+
+\ifthenelse{\isundefined{\DndArmorClass}}{\newcommand{\DndArmorClass}{}}{}
+\ifthenelse{\isundefined{\DndPersonalityTraits}}%
+	{\newcommand{\DndPersonalityTraits}{}}{}
+\ifthenelse{\isundefined{\DndFlaws}}{\newcommand{\DndFlaws}{}}{}
+\ifthenelse{\isundefined{\DndBonds}}{\newcommand{\DndBonds}{}}{}
+\ifthenelse{\isundefined{\DndIdeals}}{\newcommand{\DndIdeals}{}}{}
+
+\FPeval{\DndStr}{clip(\DndStr)}
+\FPeval{\DndDex}{clip(\DndDex)}
+\FPeval{\DndCon}{clip(\DndCon)}
+\FPeval{\DndInt}{clip(\DndInt)}
+\FPeval{\DndWis}{clip(\DndWis)}
+\FPeval{\DndCha}{clip(\DndCha)}
+
+\ifthenelse{\isundefined{\DndIsProficientStr}}
+	{\FPeval{\DndIsProficientStr}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientDex}}
+	{\FPeval{\DndIsProficientDex}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientCon}}
+	{\FPeval{\DndIsProficientCon}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientInt}}
+	{\FPeval{\DndIsProficientInt}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientWis}}
+	{\FPeval{\DndIsProficientWis}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientCha}}
+	{\FPeval{\DndIsProficientCha}{0}}{}
+
+\ifthenelse{\isundefined{\DndIsProficientAcrobatics}}
+	{\FPeval{\DndIsProficientAcrobatics}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientAnimalHandling}}
+	{\FPeval{\DndIsProficientAnimalHandling}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientArcana}}
+	{\FPeval{\DndIsProficientArcana}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientAthletics}}
+	{\FPeval{\DndIsProficientAthletics}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientDeception}}
+	{\FPeval{\DndIsProficientDeception}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientHistory}}
+	{\FPeval{\DndIsProficientHistory}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientInsight}}
+	{\FPeval{\DndIsProficientInsight}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientIntimidation}}
+	{\FPeval{\DndIsProficientIntimidation}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientInvestigation}}
+	{\FPeval{\DndIsProficientInvestigation}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientMedicine}}
+	{\FPeval{\DndIsProficientMedicine}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientNature}}
+	{\FPeval{\DndIsProficientNature}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientPerception}}
+	{\FPeval{\DndIsProficientPerception}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientPerformance}}
+	{\FPeval{\DndIsProficientPerformance}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientPersuasion}}
+	{\FPeval{\DndIsProficientPersuasion}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientReligion}}
+	{\FPeval{\DndIsProficientReligion}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientSlightOfHand}}
+	{\FPeval{\DndIsProficientSlightOfHand}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientStealth}}
+	{\FPeval{\DndIsProficientStealth}{0}}{}
+\ifthenelse{\isundefined{\DndIsProficientSurvival}}
+	{\FPeval{\DndIsProficientSurvival}{0}}{}
+
+\ifthenelse{\isundefined{\DndIsExpertiseAcrobatics}}
+	{\FPeval{\DndIsExpertiseAcrobatics}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseAnimalHandling}}
+	{\FPeval{\DndIsExpertiseAnimalHandling}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseArcana}}
+	{\FPeval{\DndIsExpertiseArcana}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseAthletics}}
+	{\FPeval{\DndIsExpertiseAthletics}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseDeception}}
+	{\FPeval{\DndIsExpertiseDeception}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseHistory}}
+	{\FPeval{\DndIsExpertiseHistory}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseInsight}}
+	{\FPeval{\DndIsExpertiseInsight}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseIntimidation}}
+	{\FPeval{\DndIsExpertiseIntimidation}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseInvestigation}}
+	{\FPeval{\DndIsExpertiseInvestigation}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseMedicine}}
+	{\FPeval{\DndIsExpertiseMedicine}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseNature}}
+	{\FPeval{\DndIsExpertiseNature}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertisePerception}}
+	{\FPeval{\DndIsExpertisePerception}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertisePerformance}}
+	{\FPeval{\DndIsExpertisePerformance}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertisePersuasion}}
+	{\FPeval{\DndIsExpertisePersuasion}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseReligion}}
+	{\FPeval{\DndIsExpertiseReligion}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseSlightOfHand}}
+	{\FPeval{\DndIsExpertiseSlightOfHand}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseStealth}}
+	{\FPeval{\DndIsExpertiseStealth}{0}}{}
+\ifthenelse{\isundefined{\DndIsExpertiseSurvival}}
+	{\FPeval{\DndIsExpertiseSurvival}{0}}{}
+
+\ifthenelse{\isundefined{\DndIsSpellcasterInt}}
+	{\FPeval{\DndIsSpellcasterInt}{0}}{}
+\ifthenelse{\isundefined{\DndIsSpellcasterWis}}
+	{\FPeval{\DndIsSpellcasterWis}{0}}{}
+\ifthenelse{\isundefined{\DndIsSpellcasterCha}}
+	{\FPeval{\DndIsSpellcasterCha}{0}}{}
+
+\ifthenelse{\isundefined{\DndCastingClass}}
+	{\newcommand{\DndCastingClass}{\DndClass}}{}
+
+\ifthenelse{\equal{\DndIsSpellcasterInt}{1}}
+	{\newcommand{\DndCastingStatName}{Intelligence}}{}
+\ifthenelse{\equal{\DndIsSpellcasterWis}{1}}
+	{\newcommand{\DndCastingStatName}{Wisdom}}{}
+\ifthenelse{\equal{\DndIsSpellcasterCha}{1}}
+	{\newcommand{\DndCastingStatName}{Charisma}}{}
+\ifthenelse{\isundefined{\DndCastingStatName}}
+	{\newcommand{\DndCastingStatName}{(none)}}{}
+
+\FPeval{\DndStrMod}{clip(trunc((\DndStr / 2), 0) - 5)}
+\FPeval{\DndDexMod}{clip(trunc((\DndDex / 2), 0) - 5)}
+\FPeval{\DndConMod}{clip(trunc((\DndCon / 2), 0) - 5)}
+\FPeval{\DndIntMod}{clip(trunc((\DndInt / 2), 0) - 5)}
+\FPeval{\DndWisMod}{clip(trunc((\DndWis / 2), 0) - 5)}
+\FPeval{\DndChaMod}{clip(trunc((\DndCha / 2), 0) - 5)}
+
+\FPeval{\DndProficiencyMod}{clip(trunc(((\DndLevel + 7)/4),0))}
+
+\FPeval{\DndSpellAttackMod}{clip(
+ \DndProficiencyMod
+ + (\DndIsSpellcasterInt * \DndIntMod)
+ + (\DndIsSpellcasterWis * \DndWisMod)
+ + (\DndIsSpellcasterCha * \DndChaMod)
+)}
+\FPeval{\DndSpellSaveDC}{clip(8 + \DndSpellAttackMod)}
+
+
+% This could be made more complex for multiclassing
+\FPeval{\DndHitPoints}{clip(
+	\DndHitDie % full die for first level
+	+
+	((\DndLevel - 1) * (trunc((\DndHitDie/2), 0)+1)) % "avg" for others
+	+
+	(\DndLevel * \DndConMod) % con mod for all levels
+)}
+
+\FPeval{\DndPassivePerception}{clip(\DndWisMod + 10)}
+
+\FPeval{\DndStrSave}
+	{clip(\DndStrMod + (\DndIsProficientStr * \DndProficiencyMod))}
+\FPeval{\DndDexSave}
+	{clip(\DndDexMod + (\DndIsProficientDex * \DndProficiencyMod))}
+\FPeval{\DndConSave}
+	{clip(\DndConMod + (\DndIsProficientCon * \DndProficiencyMod))}
+\FPeval{\DndIntSave}
+	{clip(\DndIntMod + (\DndIsProficientInt * \DndProficiencyMod))}
+\FPeval{\DndWisSave}
+	{clip(\DndWisMod + (\DndIsProficientWis * \DndProficiencyMod))}
+\FPeval{\DndChaSave}
+	{clip(\DndChaMod + (\DndIsProficientCha * \DndProficiencyMod))}
+
+\FPeval{\DndAcrobaticsMod}
+{clip(\DndDexMod + (
+	(\DndIsProficientAcrobatics + \DndIsExpertiseAcrobatics)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndAnimalHandlingMod}
+{clip(\DndWisMod + (
+	(\DndIsProficientAnimalHandling + \DndIsExpertiseAnimalHandling)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndArcanaMod}
+{clip(\DndIntMod + (
+	(\DndIsProficientArcana + \DndIsExpertiseArcana)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndAthleticsMod}
+{clip(\DndStrMod + (
+	(\DndIsProficientAthletics + \DndIsExpertiseAthletics)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndDeceptionMod}
+{clip(\DndChaMod + (
+	(\DndIsProficientDeception + \DndIsExpertiseDeception)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndHistoryMod}
+{clip(\DndIntMod + (
+	(\DndIsProficientHistory + \DndIsExpertiseHistory)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndInsightMod}
+{clip(\DndWisMod + (
+	(\DndIsProficientInsight + \DndIsExpertiseInsight)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndIntimidationMod}
+{clip(\DndChaMod + (
+	(\DndIsProficientIntimidation + \DndIsExpertiseIntimidation)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndInvestigationMod}
+{clip(\DndIntMod + (
+	(\DndIsProficientInvestigation + \DndIsExpertiseInvestigation)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndMedicineMod}
+{clip(\DndWisMod + (
+	(\DndIsProficientMedicine + \DndIsExpertiseMedicine)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndNatureMod}
+{clip(\DndIntMod + (
+	(\DndIsProficientNature + \DndIsExpertiseNature)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndPerceptionMod}
+{clip(\DndWisMod + (
+	(\DndIsProficientPerception + \DndIsExpertisePerception)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndPerformanceMod}
+{clip(\DndChaMod + (
+	(\DndIsProficientPerformance + \DndIsExpertisePerformance)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndPersuasionMod}
+{clip(\DndChaMod + (
+	(\DndIsProficientPersuasion + \DndIsExpertisePersuasion)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndReligionMod}
+{clip(\DndIntMod + (
+	(\DndIsProficientReligion + \DndIsExpertiseReligion)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndSlightOfHandMod}
+{clip(\DndDexMod + (
+	(\DndIsProficientSlightOfHand + \DndIsExpertiseSlightOfHand)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndStealthMod}
+{clip(\DndDexMod + (
+	(\DndIsProficientStealth + \DndIsExpertiseStealth)
+		 * \DndProficiencyMod))}
+
+\FPeval{\DndSurvivalMod}
+{clip(\DndWisMod + (
+	(\DndIsProficientSurvival + \DndIsExpertiseSurvival)
+		 * \DndProficiencyMod))}
+
+
+\ifthenelse{\isundefined{\DndSizeLiftFactor}}{\FPeval{\DndSizeLiftFactor}{1}}{}
+\FPeval{\DndCarryCapacity}{clip(15 * \DndStr * \DndSizeLiftFactor)}
+\FPeval{\DndCarryCapacityKg}{clip(round(\DndCarryCapacity / 2.2, 0))}
+\FPeval{\DndLiftCapacity}{clip(30 * \DndStr * \DndSizeLiftFactor)}
+\FPeval{\DndLiftCapacityKg}{clip(round(\DndLiftCapacity / 2.2, 0))}
+
+
+\ifthenelse{\isundefined{\DndPaladinLevel}}{\FPeval{\DndPaladinLevel}{0}}{}
+\ifthenelse{\isundefined{\DndArcaneTricksterLevel}}
+	{\FPeval{\DndArcaneTricksterLevel}{0}}{}

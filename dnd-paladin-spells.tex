@@ -1,0 +1,416 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Paladin Spells, Preparing and Casting Spells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright
+\FPeval{\DndPaladinSpellsToPrepare}{clip(\DndChaMod + (\DndPaladinLevel/2))}
+
+\newcommand{\DndPaladinSpellSlotsFirst}{
+	\ifthenelse{\DndPaladinLevel < 2}{0}{
+	\ifthenelse{\equal{\DndPaladinLevel}{2}}{2}{
+	\ifthenelse{\DndPaladinLevel < 5}{3}{4}}}}
+
+\newcommand{\DndPaladinSpellSlotsSecond}{
+	\ifthenelse{\DndPaladinLevel < 5}{0}{
+	\ifthenelse{\DndPaladinLevel < 7}{2}{3}}}
+
+\newcommand{\DndPaladinSpellSlotsThird}{
+	\ifthenelse{\DndPaladinLevel < 9}{0}{
+	\ifthenelse{\DndPaladinLevel < 11}{2}{3}}}
+
+\newcommand{\DndPaladinSpellSlotsFourth}{
+	\ifthenelse{\DndPaladinLevel < 13}{0}{
+	\ifthenelse{\DndPaladinLevel < 15}{1}{
+	\ifthenelse{\DndPaladinLevel < 17}{2}{3}}}}
+
+\newcommand{\DndPaladinSpellSlotsFifth}{
+	\ifthenelse{\DndPaladinLevel < 17}{0}{
+	\ifthenelse{\DndPaladinLevel < 19}{1}{2}}}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Prepare: &
+Spellcasting Ability: &
+Spell save DC: &
+Spell Attack bonus \\
+{\huge \DndPaladinSpellsToPrepare} &
+{\huge \DndCastingStatName} &
+{\huge \DndSpellSaveDC} &
+{\huge \ifthenelse{\DndStrMod<0}{}{+}\DndSpellAttackMod} \\
+\hline
+\end{tabular}
+
+\begin{multicols}{2}
+{\scriptsize
+The Paladin table shows how many Spell Slots you have to cast your
+Spells. To cast one of your Paladin Spells of 1st level or
+higher, you must expend a slot of the spell's level or higher.
+You regain all expended Spell Slots when you finish a Long
+Rest.\par
+\vspace{0.5em}
+You prepare the list of Paladin Spells that are available for you to
+cast, choosing from the Paladin spell list. When you do so, choose a
+number of Paladin Spells equal to your Charisma modifier + half your
+Paladin level, rounded down (minimum of one spell). The Spells must be
+of a level for which you have Spell Slots.\par
+} %scriptsize
+\end{multicols}
+{\scriptsize
+\ifthenelse{\DndPaladinLevel < 2}{0}{
+\textbf{Oath of the Ancients Spells}\par
+\begin{minipage}{0.4\linewidth}
+\begin{itemize}
+	\item At 3rd level: \textit{Ensnaring Strike, Speak with Animals}
+	\ifthenelse{\DndPaladinLevel < 5}{}{
+	\item At 5th level: \textit{Moonbeam, Misty Step}
+	}
+	\ifthenelse{\DndPaladinLevel < 9}{}{
+	\item At 9th level: \textit{Plant Growth, Protection from Energy}
+	}
+\end{itemize}
+\end{minipage}
+\ifthenelse{\DndPaladinLevel < 13}{}{
+\begin{minipage}{0.4\linewidth}
+\begin{itemize}
+	\item At 13th level: \textit{Ice Storm, Stoneskin}
+	\ifthenelse{\DndPaladinLevel < 17}{}{
+	\item At 17th level: \textit{Commune with Nature, Tree Stride}
+	}
+\end{itemize}
+\end{minipage}
+}
+}}
+\par
+\vspace{1em}
+
+\ovalbox{
+\begin{tabular}{c}
+	\ovalbox{\DndPaladinSpellSlotsFirst} \nth{1} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndPaladinSpellSlotsSecond} \nth{2} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndPaladinSpellSlotsThird} \nth{3} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndPaladinSpellSlotsFourth} \nth{4} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+\begin{tabular}{c}
+	\ovalbox{\DndPaladinSpellSlotsFifth} \nth{5} level slots \\
+	\framebox(60,50){} \\
+\end{tabular}
+}
+
+\vspace{1em}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paladin spell table
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\scriptsize
+\begin{tabular}{|c r l l l r l l l|}
+\hline
+Prep &
+Lvl &
+Name &
+VSM &
+Cast Time &
+Duration &
+Range &
+Save &
+Damage/Effect \\
+
+\Circle &
+1st &
+Bless &
+V, S, M &
+Action &
+1 Minute &
+30 ft &
+&
+Buff \\
+
+\Circle &
+1st &
+Ceremony &
+V, S, M &
+1 Hour &
+Instantaneous &
+Touch &
+&
+Buff \\
+
+\Circle &
+1st &
+Command &
+V &
+Action &
+1 Round &
+60 ft &
+Wis &
+Control \\
+
+\Circle &
+1st &
+Compelled Duel &
+V &
+Bonus action &
+1 Minute &
+30 ft &
+Wis &
+Control \\
+
+\Circle &
+1st &
+Cure Wounds &
+V, S &
+Action &
+Instantaneous &
+Touch &
+&
+Healing \\
+
+\Circle &
+1st &
+Detect Evil \& Good &
+V, S &
+Action &
+10 Minutes &
+Self &
+&
+Detection \\
+
+\Circle &
+1st &
+Detect Magic &
+V, S &
+Action &
+10 Minutes &
+Self &
+&
+Detection \\
+
+\Circle &
+1st &
+Detect Poison \& Disease &
+V, S, M &
+Action &
+10 Minutes &
+Self &
+&
+Detection \\
+
+\Circle &
+1st &
+Divine Favor &
+V, S &
+Bonus action &
+1 Minute &
+Self &
+&
+Radiant \\
+
+\Circle &
+1st &
+Heroism &
+V, S &
+Action &
+1 Minute &
+Touch &
+&
+Buff \\
+
+\Circle &
+1st &
+Protection from Evil \& Good &
+V, S, M &
+Action &
+10 Minutes &
+Touch &
+&
+Buff \\
+
+\Circle &
+1st &
+Purify Food \& Drink &
+V, S &
+Action &
+Instantaneous &
+10 ft &
+&
+Utility \\
+
+\Circle &
+1st &
+Searing Smite &
+V &
+Bonus action &
+1 Minute &
+Self &
+Con &
+Fire \\
+
+\Circle &
+1st &
+Shield of Faith &
+V, S, M &
+Bonus action &
+10 Minutes &
+60 ft &
+&
+Buff \\
+
+\Circle &
+1st &
+Thunderous Smite &
+V &
+Bonus action &
+1 Minute &
+Self &
+Str &
+Thunder \\
+
+\Circle &
+1st &
+Wrathful Smite &
+V &
+Bonus action &
+1 Minute &
+Self &
+Wis &
+Psychic \\
+
+\hline
+
+\Circle &
+1st &
+Ensnaring Strike &
+V &
+Bonus Action &
+1 Minute &
+Self &
+Str &
+Piercing \\
+
+\Circle &
+1st &
+Speak with Animals &
+V, S &
+Action &
+10 Minutes &
+Self &
+&
+Communication \\
+
+\hline
+
+\Circle &
+2nd &
+Aid &
+V, S, M &
+Action &
+8 Hours &
+30 ft &
+&
+Buff \\
+
+\Circle &
+2nd &
+Branding Smite &
+V &
+Bonus action &
+1 Minute &
+Self &
+&
+Radiant \\
+
+\Circle &
+2nd &
+Find Steed &
+V, S &
+10 Minutes &
+Instantaneous &
+30 ft &
+&
+Summoning \\
+
+\Circle &
+2nd &
+Lesser Restoration &
+V, S &
+Action &
+Instantaneous &
+Touch &
+&
+Healing \\
+
+\Circle &
+2nd &
+Locate Object &
+V, S, M &
+Action &
+10 Minutes &
+Self &
+&
+Detection \\
+
+\Circle &
+2nd &
+Magic Weapon &
+V, S &
+Bonus action &
+1 Hour &
+Touch &
+&
+Bludgeoning \\
+
+\Circle &
+2nd &
+Protection from Poison &
+V, S &
+Action &
+1 Hour &
+Touch &
+&
+Buff \\
+
+\Circle &
+2nd &
+Zone of Truth &
+V, S &
+Action &
+10 Minutes &
+60 ft &
+Cha &
+Control \\
+\hline
+
+\Circle &
+2nd &
+Moonbeam &
+V, S, M &
+Action &
+1 Minute &
+120 ft &
+Con &
+Radiant \\
+
+\Circle &
+2nd &
+Misty Step &
+V &
+Bonus Action &
+Instantaneous &
+Self &
+&
+Teleportation \\
+
+\hline
+\end{tabular}
+
+} % scriptsize
