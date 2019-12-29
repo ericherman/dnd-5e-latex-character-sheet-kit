@@ -1,0 +1,267 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% sheet-kais.tex: A LaTeX (pure-text, git-friendly) D&D5e character sheet
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+% For license see:
+% * https://creativecommons.org/licenses/by-sa/4.0/legalcode
+% See also the Open Game License and Frequently Asked Questions page:
+% * https://roll20.net/compendium/dnd5e/Miscellaneous:License
+% * https://www.wizards.com/default.asp?x=d20/oglfaq/20040123f
+%
+\documentclass{article}
+\title{Dungeons \& Dragons 5e character sheet}
+\date{2019-12-29}
+\author{Eric Herman}
+\usepackage[a4paper,margin=1cm]{geometry}
+\input{dnd-required-packages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin input basic variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\DndPlayer}{Ace}
+\newcommand{\DndName}{Kais Foxglove}
+\newcommand{\DndClass}{Rogue/Trickster}
+\FPeval{\DndLevel}{6}
+\newcommand{\DndBackground}{Outlander}
+\newcommand{\DndRace}{Wood elf}
+\newcommand{\DndAlignment}{Neutral Evil}
+% \newcommand{\DndXP}{}
+\newcommand{\DndAge}{100 years}
+\newcommand{\DndHeight}{6'}
+\newcommand{\DndWeight}{160 lbs}
+% \newcommand{\DndEyes}{}
+% \newcommand{\DndSkin}{}
+% \newcommand{\DndHair}{}
+
+% 4th level ability score improvements included
+\FPeval{\DndStr}{15} %
+\FPeval{\DndDex}{16 + 2} % (+2 Elf)
+\FPeval{\DndCon}{13 + 1} % (4th level Tavern Brawler)
+\FPeval{\DndInt}{14} %
+\FPeval{\DndWis}{16 + 1} % (+1 Wood Elf)
+\FPeval{\DndCha}{9} %
+
+\FPeval{\DndArmorClass}{16}
+\FPeval{\DndSpeed}{35} % Wood Elf
+\FPeval{\DndHitDie}{8}
+
+% stat proficiences: \FPeval{\DndIsProficientStr}{1} for proficient
+\FPeval{\DndIsProficientDex}{1} % Rogue
+\FPeval{\DndIsProficientInt}{1} % Rogue
+
+% skill proficiences: e.g.: \FPeval{\DndIsProficientSlightOfHand}{1}
+\FPeval{\DndIsProficientAcrobatics}{1} % Rogue
+\FPeval{\DndIsProficientAthletics}{1} % Outlander
+\FPeval{\DndIsProficientInsight}{1} % Rogue
+\FPeval{\DndIsProficientPerception}{1} % Elf "Keen Senses"
+\FPeval{\DndIsProficientSlightOfHand}{1} % Rogue
+\FPeval{\DndIsProficientStealth}{1} % Rogue
+\FPeval{\DndIsProficientSurvival}{1} % Outlander
+
+\FPeval{\DndIsExpertisePerception}{1} % Rogue 1st
+\FPeval{\DndIsExpertiseInsight}{1} % Rogue 6th
+\FPeval{\DndIsExpertiseStealth}{1} % Rogue 6th
+
+% stat for spellcasting: e.g.: \FPeval{\DndIsSpellcasterInt}{1}
+% dual-stat spellcasting (e.g.: multiclass INT, CHA) not supported
+\FPeval{\DndIsSpellcasterInt}{1}
+\FPeval{\DndArcaneTricksterLevel}{\DndLevel}
+
+\newcommand{\DndPersonalityTraits}{
+I hide food and trinkets in my pockets.
+}
+\newcommand{\DndIdeals}{
+All people, rich or poor, deserve respect.
+}
+\newcommand{\DndBonds}{
+My clan is the most important thing in my life, even though they are far
+from me.
+}
+\newcommand{\DndFlaws}{
+It's not stealing if someone else needs it more.
+}
+
+\newcommand{\DndOtherPoficienciesAndLanguages}{
+\emph{Languages}: Elvish, Common\par
+\emph{Weapon Proficiencies}: Improvised Weapons, Simple Weapons, Crossbow hand, Longsword, Rapier, Shortsword, Shortbow, Longbow\par
+\emph{Armor Proficiencies}: Light Armor\par
+\emph{Tools}: Thieves' tools, Lute, Thieves lantern\par
+\emph{Expertise}: Thieves' tools\par
+\emph{Roguish Archetype}: Arcane Trickster\par
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% background features
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndBackgroundFeatureOne}{
+\textbf{Wanderer}: You have an excellent memory for maps and geography,
+and can always recall the general laoout of terrain, settlements, and
+other features around you. In addition, you can find food and fresh
+water for yourself and up to five other people each day, provided that
+the land offers berries, small game, water, and so forth.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Race abilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndRaceSpecialOne}{
+\textbf{Darkvision}: Accustomed to twilit forests and the night sky, you
+have superior vision in dark and dim Conditions. You can see in dim
+light within 60 feet of you as if it were bright light, and in Darkness
+as if it were dim light. You can't discern color in Darkness, only
+shades of gray.
+}
+
+\newcommand{\DndRaceSpecialTwo}{
+\textbf{Fey Ancestry}: You have advantage on Saving Throws against being
+Charmed, and magic can't put you to sleep.
+}
+
+\newcommand{\DndRaceSpecialThree}{
+\textbf{Trance}:  Elves don't need to sleep. Instead, they meditate
+deeply, remaining semiconscious, for 4 hours a day. (The Common word for
+such meditation is "trance".) While meditating, you can dream after a
+fashion; such dreams are actually mental exercises that have become
+reflexive through years of practice. After Resting in this way, you gain
+the same benefit that a human does from 8 hours of sleep.
+}
+
+\newcommand{\DndRaceSpecialFour}{
+\textbf{Mask of the Wild}:
+You can attempt to hide even when you are only lightly obscured by
+foliage, heavy rain, falling snow, mist, and other natural phenomena.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class abilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndClassAbilityOne}{\textbf{Sneak Attack}:
+Beginning at 1st level, you know how to strike subtly and exploit a
+foe's distraction. Once per turn, you can deal an extra 1d6 damage to
+one creature you hit with an Attack if you have advantage on the Attack
+roll. The Attack must use a Finesse or a ranged weapon.
+\par
+You don't need advantage on the Attack roll if another enemy of the
+target is within 5 feet of it, that enemy isn't Incapacitated, and you
+don't have disadvantage on the Attack roll.
+\par
+The amount of the extra damage increases as you gain levels in this
+class, as shown in the Sneak Attack column of the Rogue table.
+}
+
+\newcommand{\DndClassAbilityTwo}{\textbf{Thieves' Cant}:
+During your rogue Training you learned thieves' cant, a Secret mix of
+dialect, jargon, and code that allows you to hide messages in seemingly
+normal conversation. Only another creature that knows thieves' cant
+understands such messages. It takes four times longer to convey such a
+Message than it does to speak the same idea plainly.
+\par
+In addition, you understand a set of Secret signs and symbols used to
+convey short, simple messages, such as whether an area is dangerous or
+the territory of a thieves' guild, whether loot is nearby, or whether
+the people in an area are easy marks or will provide a Safe House for
+thieves on the run.
+}
+
+\newcommand{\DndClassAbilityThree}{\textbf{Cunning Action}:
+Starting at 2nd level, your quick thinking and agility allow you to move
+and act quickly. You can take a Bonus Action on each of your turns in
+Combat. This action can be used only to take the Dash, Disengage, or
+Hide action.
+}
+
+% Tavern Brawler feat taken at 4th level instead of ability score
+% improvement
+\newcommand{\DndClassAbilityFour}{\textbf{Tavern Brawler}:
+Accustomed to rough-and-tumble fighting using whatever weapons happen to
+be at hand, you gain the following benefits: Increase your Strength or
+Constitution score by 1 to a maximum of 20 (included). You are
+proficient with improvised weapon weapons. Your unarmed strike uses a d4
+for damage. When you hit a creature with an unarmed strike or an
+improvised weapon on your turn, you can use a bonus action to attempt to
+grapple the target.
+}
+
+\newcommand{\DndClassAbilityFive}{\textbf{Uncanny Dodge}:
+Starting at 5th level, when an attacker that you can see hits you with
+an Attack, you can use your Reaction to halve the attack's damage
+against you.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Specialty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\DndSpecialtyName}{Arcane Trickster}
+% \newcommand{\DndSpecialtyPreamble}{}
+% \newcommand{\DndSpecialtyAbilityOne}{\textbf{foo}:bar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Attacks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndWeaponOneName}{Rapier}
+\newcommand{\DndWeaponOneType}{Dex}
+\newcommand{\DndWeaponOneDamageType}{piercing}
+\newcommand{\DndWeaponOneDamage}{1d8}
+
+\newcommand{\DndWeaponTwoName}{Longbow}
+\newcommand{\DndWeaponTwoType}{Dex}
+\newcommand{\DndWeaponTwoDamageType}{piercing}
+\newcommand{\DndWeaponTwoDamage}{1d8}
+
+\newcommand{\DndWeaponThreeName}{shortsword}
+\newcommand{\DndWeaponThreeType}{Dex}
+\newcommand{\DndWeaponThreeDamageType}{piercing}
+\newcommand{\DndWeaponThreeDamage}{1d6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Combat Special (box highlight)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\DndCombatSpecialOne}{\textbf{foo}: bar}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class Specialty (box highlight)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\DndSpecialtyBoxHighlightOne}{}
+
+% Note: Inventory is in a separate sheet document entirely
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pull in all of the variables needed for everything else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{dnd-ensure-variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of global variables, beginning of layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts are hard, going with Alegreya for now:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{Alegreya} %% Option 'black' gives heavier bold face
+\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}} % cargo culting
+\setlength\parindent{0pt} % we do not want to repeat \noindent everwhere
+\begin{document}
+\pagenumbering{gobble} % turn off pagenumbers
+\newpage
+\raggedright
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page 1: character sheet header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{dnd-character-header-1}
+\input{dnd-main-stats-and-traits}
+% end stats, begin regular text-like layout
+%\input{dnd-combat-special}
+\input{dnd-class-abilities}
+\input{dnd-special-abilites}
+\input{dnd-background}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page 2: character physical stuff header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\raggedright
+\input{dnd-character-header-2}
+\input{dnd-race-abilities}
+\input{dnd-trickster-spells}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
