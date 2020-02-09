@@ -4,7 +4,9 @@
 % Background Features
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\isundefined{\DndBackgroundFeatureOne}}{}{
+\ifthenelse{\isundefined{\DndSkipBackgroundSectionHeader}}{
 \section*{\DndBackground}
+}{}
 \DndBackgroundFeatureOne
 \ifthenelse{\isundefined{\DndBackgroundFeatureTwo}}{}%
 	{\vspace{0.5em}\hrule\vspace{0.5em}\DndBackgroundFeatureTwo}

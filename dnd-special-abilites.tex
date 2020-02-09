@@ -5,6 +5,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\isundefined{\DndSpecialtyPreamble}}{}{
 	\fbox{\parbox{\linewidth}{{\DndSpecialtyPreamble}}}}
+\ifthenelse{\isundefined{\DndSpecialtyBoxHighlightOne}}{}{
+\fbox{\parbox{\textwidth}{\DndSpecialtyBoxHighlightOne}}
+}
 \ifthenelse{\isundefined{\DndSpecialtyAbilityOne}}{}{
 \begin{multicols}{2}
 \DndSpecialtyAbilityOne
@@ -23,7 +26,4 @@
 \ifthenelse{\isundefined{\DndSpecialtyAbilityEight}}{}%
 	{\vspace{0.5em}\hrule\vspace{0.5em}\DndSpecialtyAbilityEight}
 \end{multicols}
-\ifthenelse{\isundefined{\DndSpecialtyBoxHighlightOne}}{}{
-\fbox{\parbox{\textwidth}{\DndSpecialtyBoxHighlightOne}}
-}
 }
