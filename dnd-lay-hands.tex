@@ -2,10 +2,13 @@
 % Copyright (C) 2019 Eric Herman <eric@freesa.org>
 \ifthenelse{\DndPaladinLevel>0}{
 \FPeval{\DndLayOnHandsPool}{clip(\DndPaladinLevel * 5)}
+\FPeval{\DndDivineSense}{clip(1 + \DndChaMod)}
 \fbox{ \parbox{\textwidth}{
 \begin{tabular}{c}
 {\small Lay on Hands pool }\ovalbox{\DndLayOnHandsPool} \\
-\framebox(90,30){} \\
+\framebox(90,15){} \\
+{\small Divine Sense }\ovalbox{\DndDivineSense} \\
+\framebox(90,15){} \\
 \ifthenelse{\DndPaladinLevel>3}{
 {\small Channel Divinity: }\framebox(15,10){} \\
 }{}
