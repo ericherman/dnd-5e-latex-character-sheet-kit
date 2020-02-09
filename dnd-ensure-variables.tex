@@ -176,106 +176,112 @@
 
 \FPeval{\DndPassivePerception}{clip(\DndWisMod + 10)}
 
-\FPeval{\DndStrSave}
-	{clip(\DndStrMod + (\DndIsProficientStr * \DndProficiencyMod))}
-\FPeval{\DndDexSave}
-	{clip(\DndDexMod + (\DndIsProficientDex * \DndProficiencyMod))}
-\FPeval{\DndConSave}
-	{clip(\DndConMod + (\DndIsProficientCon * \DndProficiencyMod))}
-\FPeval{\DndIntSave}
-	{clip(\DndIntMod + (\DndIsProficientInt * \DndProficiencyMod))}
-\FPeval{\DndWisSave}
-	{clip(\DndWisMod + (\DndIsProficientWis * \DndProficiencyMod))}
-\FPeval{\DndChaSave}
-	{clip(\DndChaMod + (\DndIsProficientCha * \DndProficiencyMod))}
+% Luckstone and similar may have a Saving Throw modifier
+\ifthenelse{\isundefined{\DndSaveMod}}{\FPeval{\DndSaveMod}{0}}{}
+
+\FPeval{\DndStrSave}{clip(
+	\DndSaveMod + \DndStrMod + (\DndIsProficientStr * \DndProficiencyMod))}
+\FPeval{\DndDexSave}{clip(
+	\DndSaveMod + \DndDexMod + (\DndIsProficientDex * \DndProficiencyMod))}
+\FPeval{\DndConSave}{clip(
+	\DndSaveMod + \DndConMod + (\DndIsProficientCon * \DndProficiencyMod))}
+\FPeval{\DndIntSave}{clip(
+	\DndSaveMod + \DndIntMod + (\DndIsProficientInt * \DndProficiencyMod))}
+\FPeval{\DndWisSave}{clip(
+	\DndSaveMod + \DndWisMod + (\DndIsProficientWis * \DndProficiencyMod))}
+\FPeval{\DndChaSave}{clip(
+	\DndSaveMod + \DndChaMod + (\DndIsProficientCha * \DndProficiencyMod))}
+
+% Luckstone and similar may have an modifier
+\ifthenelse{\isundefined{\DndSkillMod}}{\FPeval{\DndSkillMod}{0}}{}
 
 \FPeval{\DndAcrobaticsMod}
-{clip(\DndDexMod + (
+{clip(\DndSkillMod + \DndDexMod + (
 	(\DndIsProficientAcrobatics + \DndIsExpertiseAcrobatics)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndAnimalHandlingMod}
-{clip(\DndWisMod + (
+{clip(\DndSkillMod + \DndWisMod + (
 	(\DndIsProficientAnimalHandling + \DndIsExpertiseAnimalHandling)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndArcanaMod}
-{clip(\DndIntMod + (
+{clip(\DndSkillMod + \DndIntMod + (
 	(\DndIsProficientArcana + \DndIsExpertiseArcana)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndAthleticsMod}
-{clip(\DndStrMod + (
+{clip(\DndSkillMod + \DndStrMod + (
 	(\DndIsProficientAthletics + \DndIsExpertiseAthletics)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndDeceptionMod}
-{clip(\DndChaMod + (
+{clip(\DndSkillMod + \DndChaMod + (
 	(\DndIsProficientDeception + \DndIsExpertiseDeception)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndHistoryMod}
-{clip(\DndIntMod + (
+{clip(\DndSkillMod + \DndIntMod + (
 	(\DndIsProficientHistory + \DndIsExpertiseHistory)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndInsightMod}
-{clip(\DndWisMod + (
+{clip(\DndSkillMod + \DndWisMod + (
 	(\DndIsProficientInsight + \DndIsExpertiseInsight)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndIntimidationMod}
-{clip(\DndChaMod + (
+{clip(\DndSkillMod + \DndChaMod + (
 	(\DndIsProficientIntimidation + \DndIsExpertiseIntimidation)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndInvestigationMod}
-{clip(\DndIntMod + (
+{clip(\DndSkillMod + \DndIntMod + (
 	(\DndIsProficientInvestigation + \DndIsExpertiseInvestigation)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndMedicineMod}
-{clip(\DndWisMod + (
+{clip(\DndSkillMod + \DndWisMod + (
 	(\DndIsProficientMedicine + \DndIsExpertiseMedicine)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndNatureMod}
-{clip(\DndIntMod + (
+{clip(\DndSkillMod + \DndIntMod + (
 	(\DndIsProficientNature + \DndIsExpertiseNature)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndPerceptionMod}
-{clip(\DndWisMod + (
+{clip(\DndSkillMod + \DndWisMod + (
 	(\DndIsProficientPerception + \DndIsExpertisePerception)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndPerformanceMod}
-{clip(\DndChaMod + (
+{clip(\DndSkillMod + \DndChaMod + (
 	(\DndIsProficientPerformance + \DndIsExpertisePerformance)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndPersuasionMod}
-{clip(\DndChaMod + (
+{clip(\DndSkillMod + \DndChaMod + (
 	(\DndIsProficientPersuasion + \DndIsExpertisePersuasion)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndReligionMod}
-{clip(\DndIntMod + (
+{clip(\DndSkillMod + \DndIntMod + (
 	(\DndIsProficientReligion + \DndIsExpertiseReligion)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndSlightOfHandMod}
-{clip(\DndDexMod + (
+{clip(\DndSkillMod + \DndDexMod + (
 	(\DndIsProficientSlightOfHand + \DndIsExpertiseSlightOfHand)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndStealthMod}
-{clip(\DndDexMod + (
+{clip(\DndSkillMod + \DndDexMod + (
 	(\DndIsProficientStealth + \DndIsExpertiseStealth)
 		 * \DndProficiencyMod))}
 
 \FPeval{\DndSurvivalMod}
-{clip(\DndWisMod + (
+{clip(\DndSkillMod + \DndWisMod + (
 	(\DndIsProficientSurvival + \DndIsExpertiseSurvival)
 		 * \DndProficiencyMod))}
 
