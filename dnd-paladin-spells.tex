@@ -4,7 +4,8 @@
 \section*{Paladin Spells, Preparing and Casting Spells}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \raggedright
-\FPeval{\DndPaladinSpellsToPrepare}{clip(\DndChaMod + (\DndPaladinLevel/2))}
+\FPeval{\DndPaladinSpellsToPrepare}{clip(\DndChaMod +
+	trunc(\DndPaladinLevel/2, 0))}
 
 \newcommand{\DndPaladinSpellSlotsFirst}{
 	\ifthenelse{\DndPaladinLevel < 2}{0}{
