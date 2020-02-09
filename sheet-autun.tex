@@ -27,7 +27,7 @@
 \newcommand{\DndName}{Autun}
 \newcommand{\DndTitle}{Warden of Cantos Wood}
 \newcommand{\DndClass}{Paladin}
-\FPeval{\DndLevel}{6}
+\FPeval{\DndLevel}{7}
 \newcommand{\DndBackground}{Acolyte}
 \newcommand{\DndRace}{Firbolg}
 \newcommand{\DndAlignment}{Neutral Good}
@@ -49,6 +49,9 @@
 \FPeval{\DndArmorClass}{17}
 \FPeval{\DndSpeed}{30}
 \FPeval{\DndHitDie}{10}
+
+% Aura of Protection grants ChaMod
+\FPeval{\DndSaveMod}{clip(trunc((\DndCha / 2), 0) - 5)}
 
 % stat proficiences: \FPeval{\DndIsProficientStr}{1} for proficient
 \FPeval{\DndIsProficientWis}{1}
@@ -194,7 +197,7 @@ you take the Attack action on Your Turn.
 Starting at 6th level, whenever you or a friendly creature within 10
 feet of you must make a saving throw, the creature gains a bonus to the
 saving throw equal to your Charisma modifier (with a minimum bonus of
-+1). You must be conscious to grant this bonus.
++1). You must be conscious to grant this bonus. (Already included.)
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -261,6 +264,11 @@ action.\par
 If the creature's true form is concealed by an illusion, shapeshifting, or
 other effect, that form is revealed while it is turned.
 }
+\newcommand{\DndSpecialtyAbilityFour}{
+\textbf{Aura of Warding}: Beginning at 7th level, ancient magic lies so
+heavily upon you that it forms an eldritch ward. You and friendly
+creatures within 10 feet of you have resistance to dameg from spells.
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Attacks
@@ -295,7 +303,9 @@ other effect, that form is revealed while it is turned.
 \newcommand{\DndCombatSpecialOne}{
 \textbf{Dawnbringer} appears to be a gilded longsword hilt. While
 grasping the hilt, you can use a bonus action to make a blade of pure
-radiance spring from the hilt, or cause the blade to disappear.
+radiance spring from the hilt, or cause the blade to disappear. If you
+are proficient with shortswords or longswords, you are proficient with
+Dawnbringer.
 \begin{itemize}
 \item While the blade exists, this magic longsword has the
 \textit{finesse} property.
@@ -312,8 +322,6 @@ extra 1d8 radiant damage.
 long as you are attuned to her, she knows every language you know.
 Otherwise, she can speak and understand Common.
 \end{itemize}
-If you are proficient with shortswords or longswords, you are proficient
-with Dawnbringer.
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -357,9 +365,13 @@ following effects:
 \input{dnd-character-header-1}
 \input{dnd-main-stats-and-traits}
 % end stats, begin regular text-like layout
+\newcommand{\DndSkipCombatSpecialSectionHeader}{1}
 \input{dnd-combat-special}
+\newcommand{\DndSkipRaceSectionHeader}{1}
 \input{dnd-race-abilities}
+\newcommand{\DndSkipClassAbilitiesSectionHeader}{1}
 \input{dnd-class-abilities}
+\newcommand{\DndSkipSpecialAbilitiesSectionHeader}{1}
 \input{dnd-special-abilites}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header 2: new page for character physical stuff header
