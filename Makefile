@@ -16,9 +16,17 @@ kais:
 check-kais: kais
 	$(PDFVIEW) sheet-kais.pdf
 
-pdf: autun kais
+ijmer:
+	@echo ijmer
+	pdflatex -synctex=1 sheet-ijmer.tex
 
-check: check-autun check-kais
+check-ijmer: ijmer
+	$(PDFVIEW) sheet-ijmer.pdf
+
+
+pdf: autun kais ijmer
+
+check: check-autun check-kais check-ijmer
 
 clean:
 	rm -fv *.aux *.log *.gz *.pdf

@@ -1,0 +1,146 @@
+% SPDX-License-Identifier: CC-BY-SA-4.0
+% sheet-kais.tex: A LaTeX (pure-text, git-friendly) D&D5e character sheet
+% Copyright (C) 2019 Eric Herman <eric@freesa.org>
+% For license see:
+% * https://creativecommons.org/licenses/by-sa/4.0/legalcode
+% See also the Open Game License and Frequently Asked Questions page:
+% * https://roll20.net/compendium/dnd5e/Miscellaneous:License
+% * https://www.wizards.com/default.asp?x=d20/oglfaq/20040123f
+%
+\documentclass{article}
+\title{Dungeons \& Dragons 5e character sheet}
+\date{2019-12-29}
+\author{Eric Herman}
+\usepackage[a4paper,margin=1cm]{geometry}
+\input{dnd-required-packages}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Begin input basic variables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\DndPlayer}{Eric}
+\newcommand{\DndName}{Ĳmer}
+\newcommand{\DndTitle}{Steed of Autun}
+\newcommand{\DndClass}{Steed}
+\FPeval{\DndLevel}{4}
+\newcommand{\DndBackground}{}
+\newcommand{\DndRace}{Celestial Moose}
+\newcommand{\DndAlignment}{Neutral good}
+% \newcommand{\DndXP}{}
+\newcommand{\DndAge}{}
+\newcommand{\DndHeight}{2 meters at the shoulder}
+\newcommand{\DndWeight}{600 kg}
+\newcommand{\DndEyes}{black}
+\newcommand{\DndSkin}{1.5 meter rack}
+\newcommand{\DndHair}{white}
+
+\FPeval{\DndStr}{18} %
+\FPeval{\DndDex}{10} %
+\FPeval{\DndCon}{12} %
+\FPeval{\DndInt}{6} %
+\FPeval{\DndWis}{10} %
+\FPeval{\DndCha}{6} %
+
+\FPeval{\DndArmorClass}{10}
+\FPeval{\DndSpeed}{50} %
+\FPeval{\DndHitDie}{10}
+\FPeval{\DndHitPoints}{28}
+
+% stat proficiences: \FPeval{\DndIsProficientStr}{1} for proficient
+
+% skill proficiences: e.g.: \FPeval{\DndIsProficientSlightOfHand}{1}
+
+% stat for spellcasting: e.g.: \FPeval{\DndIsSpellcasterInt}{1}
+% dual-stat spellcasting (e.g.: multiclass INT, CHA) not supported
+
+\newcommand{\DndPersonalityTraits}{
+}
+\newcommand{\DndIdeals}{
+}
+\newcommand{\DndBonds}{
+}
+\newcommand{\DndFlaws}{
+}
+
+\newcommand{\DndOtherPoficienciesAndLanguages}{
+\emph{Languages}: Common, Celestial\par
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Class abilities
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndRaceSpecialOne}{
+\textbf{Charge}: If the Ĳmer moves at least 20 ft. straight toward
+a target and then hits it with a ram Attack on the same turn, the
+target takes an extra 2d6 damage. If the target is a creature, it
+must succeed on a DC 14 Strength saving throw or be knocked prone.
+}
+
+\newcommand{\DndRaceSpecialTwo}{
+\textbf{Telepathy}: While within 1 mile of each other, Ĳmer and
+Autun can communicate telepathically.
+}
+
+\newcommand{\DndRaceSpecialThree}{
+\textbf{Seemless unit}: While mounted, Autun may make any spell he
+casts which would normally target only himself also target Ĳmer.
+}
+\newcommand{\DndRaceSpecialFour}{\textbf{Ram}: Melee Weapon Attack:
++6 to hit, reach 5 ft., one target. Hit: 1d6 +4 bludgeoning damage.
+}
+
+\newcommand{\DndRaceSpecialFive}{\textbf{Hoves}: Melee Weapon
+Attack: +6 to hit, reach 5 ft., one prone creature. Hit: 2d4 +4
+bludgeoning damage.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Attacks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\DndWeaponOneName}{Ram}
+\newcommand{\DndWeaponOneType}{Str}
+\newcommand{\DndWeaponOneDamageType}{bludgeoning}
+\newcommand{\DndWeaponOneDamage}{1d6}
+\newcommand{\DndWeaponOneSpecailKey}{w/ Charge}
+\newcommand{\DndWeaponOneSpecailVal}{+2d6, prone unless save}
+
+\newcommand{\DndWeaponTwoName}{Hooves}
+\newcommand{\DndWeaponTwoType}{Str}
+\newcommand{\DndWeaponTwoDamageType}{bludgeoning}
+\newcommand{\DndWeaponTwoDamage}{2d4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pull in all of the variables needed for everything else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{dnd-ensure-variables}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% End of global variables, beginning of layout
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\DndSkipCombatSpecialSectionHeader}{1}
+\newcommand{\DndSkipRaceSectionHeader}{1}
+\newcommand{\DndSkipClassAbilitiesSectionHeader}{1}
+\newcommand{\DndSkipSpecialAbilitiesSectionHeader}{1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts are hard, going with Alegreya for now:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[T1]{fontenc}
+\usepackage{Alegreya} %% Option 'black' gives heavier bold face
+\renewcommand*\oldstylenums[1]{{\AlegreyaOsF #1}} % cargo culting
+\setlength\parindent{0pt} % we do not want to repeat \noindent everwhere
+\begin{document}
+\pagenumbering{gobble} % turn off pagenumbers
+\newpage
+\raggedright
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Page 1: character sheet header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{dnd-character-header-1}
+\input{dnd-main-stats-and-traits}
+% end stats, begin regular text-like layout
+\input{dnd-class-abilities}
+\input{dnd-race-abilities}
+\input{dnd-character-header-2}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
